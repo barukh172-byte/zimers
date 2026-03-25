@@ -1,0 +1,59 @@
+generator client {
+  provider        = "prisma-client-js"
+  previewFeatures = ["driverAdapters"]
+}
+
+datasource db {
+  provider = "sqlite"
+}
+
+model User {
+  id        String   @id @default(cuid())
+  email     String   @unique
+  password  String
+  role      String   @default("ADMIN")
+  createdAt DateTime @default(now())
+}
+
+model Zimmer {
+  id           String        @id @default(cuid())
+  name         String
+  description  String
+  price        Float
+  capacity     Int
+  imageUrl     String?
+  amenities    String
+  isAvailable  Boolean       @default(true)
+  poolType     String?
+  suitableFor  String?
+  rating       Float         @default(0)
+  reviewsCount Int           @default(0)
+  createdAt    DateTime      @default(now())
+  updatedAt    DateTime      @updatedAt
+  reservations Reservation[]
+  reviews      Review[]
+}
+
+model Review {
+  id        String   @id @default(cuid())
+  zimmerId  String
+  name      String
+  rating    Int
+  comment   String
+  createdAt DateTime @default(now())
+  zimmer    Zimmer   @relation(fields: [zimmerId], references: [id], onDelete: Cascade)
+}
+
+model Reservation {
+  id         String   @id @default(cuid())
+  zimmerId   String
+  guestName  String
+  guestPhone String
+  startDate  DateTime
+  endDate    DateTime
+  totalPrice Float
+  status     String   @default("PENDING")
+  createdAt  DateTime @default(now())
+  updatedAt  DateTime @updatedAt
+  zimmer     Zimmer   @relation(fields: [zimmerId], references: [id], onDelete: Cascade)
+}

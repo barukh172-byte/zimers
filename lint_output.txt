@@ -1,0 +1,66 @@
+
+> zimmer-booking-app@0.1.0 lint
+> eslint
+
+
+C:\Users\baruk\.gemini\antigravity\scratch\zimmer-booking-app\prisma\seed.js
+  6:18  error  A `require()` style import is forbidden  @typescript-eslint/no-require-imports
+  7:34  error  A `require()` style import is forbidden  @typescript-eslint/no-require-imports
+
+C:\Users\baruk\.gemini\antigravity\scratch\zimmer-booking-app\src\app\admin\edit\[id]\page.tsx
+  12:12  warning  'error' is defined but never used  @typescript-eslint/no-unused-vars
+
+C:\Users\baruk\.gemini\antigravity\scratch\zimmer-booking-app\src\app\api\reviews\route.ts
+  67:12  warning  'error' is defined but never used  @typescript-eslint/no-unused-vars
+
+C:\Users\baruk\.gemini\antigravity\scratch\zimmer-booking-app\src\app\api\seed\route.ts
+   9:11  warning  'admin' is assigned a value but never used    @typescript-eslint/no-unused-vars
+  22:13  warning  'zimmers' is assigned a value but never used  @typescript-eslint/no-unused-vars
+  49:19  error    Unexpected any. Specify a different type      @typescript-eslint/no-explicit-any
+
+C:\Users\baruk\.gemini\antigravity\scratch\zimmer-booking-app\src\app\api\zimmers\[id]\route.ts
+  20:12  warning  'error' is defined but never used  @typescript-eslint/no-unused-vars
+  54:12  warning  'error' is defined but never used  @typescript-eslint/no-unused-vars
+  76:12  warning  'error' is defined but never used  @typescript-eslint/no-unused-vars
+
+C:\Users\baruk\.gemini\antigravity\scratch\zimmer-booking-app\src\app\api\zimmers\route.ts
+  19:12  warning  'error' is defined but never used  @typescript-eslint/no-unused-vars
+
+C:\Users\baruk\.gemini\antigravity\scratch\zimmer-booking-app\src\app\page.tsx
+  64:13  error  Do not use an `<a>` element to navigate to `/zimmers/`. Use `<Link />` from `next/link` instead. See: https://nextjs.org/docs/messages/no-html-link-for-pages  @next/next/no-html-link-for-pages
+  83:13  error  Do not use an `<a>` element to navigate to `/zimmers/`. Use `<Link />` from `next/link` instead. See: https://nextjs.org/docs/messages/no-html-link-for-pages  @next/next/no-html-link-for-pages
+  99:15  error  Do not use an `<a>` element to navigate to `/zimmers/`. Use `<Link />` from `next/link` instead. See: https://nextjs.org/docs/messages/no-html-link-for-pages  @next/next/no-html-link-for-pages
+
+C:\Users\baruk\.gemini\antigravity\scratch\zimmer-booking-app\src\app\zimmers\[id]\page.tsx
+  12:12  warning  'error' is defined but never used                                                                                                                                                                                                                                                        @typescript-eslint/no-unused-vars
+  22:48  error    Unexpected any. Specify a different type                                                                                                                                                                                                                                                 @typescript-eslint/no-explicit-any
+  58:15  warning  Using `<img>` could result in slower LCP and higher bandwidth. Consider using `<Image />` from `next/image` or a custom image loader to automatically optimize images. This may incur additional usage or cost from your provider. See: https://nextjs.org/docs/messages/no-img-element  @next/next/no-img-element
+
+C:\Users\baruk\.gemini\antigravity\scratch\zimmer-booking-app\src\app\zimmers\page.tsx
+   19:18  error  Unexpected any. Specify a different type                                                                                                                       @typescript-eslint/no-explicit-any
+  110:11  error  Do not use an `<a>` element to navigate to `/zimmers/`. Use `<Link />` from `next/link` instead. See: https://nextjs.org/docs/messages/no-html-link-for-pages  @next/next/no-html-link-for-pages
+
+C:\Users\baruk\.gemini\antigravity\scratch\zimmer-booking-app\src\components\BookingCalendar.tsx
+   5:10  warning  'format' is defined but never used                               @typescript-eslint/no-unused-vars
+  14:58  warning  'zimmerId' is defined but never used                             @typescript-eslint/no-unused-vars
+  36:54  error    `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+  76:19  error    `"` can be escaped with `&quot;`, `&ldquo;`, `&#34;`, `&rdquo;`  react/no-unescaped-entities
+
+C:\Users\baruk\.gemini\antigravity\scratch\zimmer-booking-app\src\components\DeleteZimmerButton.tsx
+  26:14  warning  'error' is defined but never used  @typescript-eslint/no-unused-vars
+
+C:\Users\baruk\.gemini\antigravity\scratch\zimmer-booking-app\src\components\Navigation.tsx
+  25:86  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  26:93  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+
+C:\Users\baruk\.gemini\antigravity\scratch\zimmer-booking-app\src\components\ReviewForm.tsx
+  41:19  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+
+C:\Users\baruk\.gemini\antigravity\scratch\zimmer-booking-app\src\components\ZimmerCard.tsx
+  42:11  warning  Using `<img>` could result in slower LCP and higher bandwidth. Consider using `<Image />` from `next/image` or a custom image loader to automatically optimize images. This may incur additional usage or cost from your provider. See: https://nextjs.org/docs/messages/no-img-element  @next/next/no-img-element
+
+C:\Users\baruk\.gemini\antigravity\scratch\zimmer-booking-app\src\components\ZimmerForm.tsx
+  54:19  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+
+✖ 29 problems (15 errors, 14 warnings)
+
