@@ -3,9 +3,10 @@ import { PrismaLibSql } from "@prisma/adapter-libsql";
 
 const config = {
   url: process.env.DATABASE_URL || "file:./dev.db",
+  authToken: process.env.TURSO_AUTH_TOKEN,
 };
 
-const adapter = new PrismaLibSql(config);
+const adapter = new PrismaLibSql(config as any);
 
 const globalForPrisma = global as unknown as { prisma: PrismaClient };
 
