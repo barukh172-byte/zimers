@@ -17,15 +17,16 @@ async function getZimmer(id: string) {
 export default async function ZimmerDetailPage({
   params,
 }: {
-  params: { id: string };
+  params: Promise<{ id: string }>;
 }) {
-  const zimmer = await getZimmer(params.id) as any;
+  const { id } = await params;
+  const zimmer = await getZimmer(id) as any;
 
   if (!zimmer) {
     notFound();
   }
 
-  const amenitiesList = zimmer.amenities.split(',').map(a => a.trim());
+  const amenitiesList = zimmer.amenities.split(',').map((a: string) => a.trim());
 
   return (
     <div className="container" style={{ padding: '4rem 0' }}>
@@ -105,7 +106,7 @@ export default async function ZimmerDetailPage({
           <div>
             <h3 style={{ fontSize: '1.5rem', marginBottom: '1.5rem' }}>מה מחכה לכם כאן</h3>
             <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '1.25rem' }}>
-              {amenitiesList.map((amenity, i) => (
+              {amenitiesList.map((amenity: string, i: number) => (
                 <div key={i} style={{ 
                   display: 'flex', 
                   alignItems: 'center', 

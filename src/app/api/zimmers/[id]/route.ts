@@ -5,11 +5,12 @@ import { getServerSession } from "next-auth";
 // GET /api/zimmers/[id] - Get details for a single zimmer
 export async function GET(
   request: Request,
-  { params }: { params: { id: string } }
+  { params }: { params: Promise<{ id: string }> }
 ) {
+  const { id } = await params;
   try {
     const zimmer = await prisma.zimmer.findUnique({
-      where: { id: params.id }
+      where: { id }
     });
 
     if (!zimmer) {
@@ -25,8 +26,9 @@ export async function GET(
 // PUT /api/zimmers/[id] - Update a zimmer (Admin Only)
 export async function PUT(
   request: Request,
-  { params }: { params: { id: string } }
+  { params }: { params: Promise<{ id: string }> }
 ) {
+  const { id } = await params;
   const session = await getServerSession();
   
   if (!session) {
@@ -38,7 +40,7 @@ export async function PUT(
     const { name, description, price, capacity, imageUrl, amenities, isAvailable } = body;
 
     const zimmer = await prisma.zimmer.update({
-      where: { id: params.id },
+      where: { id },
       data: {
         name,
         description,
@@ -59,8 +61,9 @@ export async function PUT(
 // DELETE /api/zimmers/[id] - Delete a zimmer (Admin Only)
 export async function DELETE(
   request: Request,
-  { params }: { params: { id: string } }
+  { params }: { params: Promise<{ id: string }> }
 ) {
+  const { id } = await params;
   const session = await getServerSession();
   
   if (!session) {
@@ -69,7 +72,7 @@ export async function DELETE(
 
   try {
     await prisma.zimmer.delete({
-      where: { id: params.id }
+      where: { id }
     });
 
     return new NextResponse(null, { status: 204 });

@@ -17,15 +17,16 @@ async function getZimmer(id: string) {
 export default async function EditZimmerPage({
   params,
 }: {
-  params: { id: string };
+  params: Promise<{ id: string }>;
 }) {
+  const { id } = await params;
   const session = await getServerSession();
   
   if (!session) {
     redirect("/login");
   }
 
-  const zimmer = await getZimmer(params.id);
+  const zimmer = await getZimmer(id);
 
   if (!zimmer) {
     notFound();
